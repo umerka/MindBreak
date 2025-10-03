@@ -9,15 +9,6 @@ tape = []
 for i in range(1000):
     tape.append(0)
 
-def basics(op, idx):
-        if op == '>':
-            idx+=1
-        if op == '<':
-            idx-=1
-        if op == '+':
-            tape[idx] += 1
-        if op == '-':
-            tape[idx] -= 1
 
 def main():
     skip = False
@@ -29,16 +20,20 @@ def main():
 
     i=0
     ib = 0
-    nu = ''
+    luop = ''
     while i != len(array):
         if array[i] == '>' and skip == False:
             idx+=1
+            luop = '>'
         if array[i] == '<' and skip == False:
             idx-=1
+            luop = '>'
         if array[i] == '+' and skip == False:
             tape[idx] += 1
-        if array[i] == '-' and skip = False:
+            luop = '+'
+        if array[i] == '-' and skip == False:
             tape[idx] -= 1
+            luop = '-'
         if array[i] == "." and skip == False:
             print(chr(tape[idx]))
         if array[i] == ',' and skip == False:
@@ -51,11 +46,15 @@ def main():
         if array[i] == ']':
             skip = False
         if array[i] in numbers:
-            op = array[i-1]
-            for i in int(array[i]):
-                basics(op, idx)
-
-
+            for j in range(int(array[i])):
+                if luop == '>':
+                    idx+=1
+                if luop == '<':
+                    idx-=1
+                if luop == '+':
+                    tape[idx] += 1
+                if luop == '-':
+                    tape[idx] -= 1
         i+=1
 
 
