@@ -64,11 +64,11 @@
 
 
 
-#### **Skip-if-Zero:**
+#### **Skip-if-not-Zero:**
 
-&nbsp;	***(\[ ])\**** - Skip-if-Zero operator. Instead of the loop operator of regular BrainFuck,
+&nbsp;	***(\[ ])\**** - Skip-if-not-Zero operator. Instead of the loop operator of regular BrainFuck,
 
-&nbsp;		 It just skips the code inside if the current cell's value is 0.
+&nbsp;		 It just skips the code inside if the current cell's value isn't 0.
 
 &nbsp;		 Hovever, these cannot be nested. this is by design.
 
