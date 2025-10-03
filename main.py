@@ -39,12 +39,13 @@ def main():
 
         if array[i] == '.' and skip == False:
             print(chr(tape[idx]), end='')
+
         if array[i] == ',' and skip == False:
             temp = input('>')
             if temp == '':
-                array[idx] = 0
+                tape[idx] = 0
             else:
-                array[idx] = ord(temp)
+                tape[idx] = ord(temp)
 
         if array[i] == '#':
             pass
