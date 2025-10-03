@@ -12,27 +12,34 @@ for i in range(1000):
 def main():
     skip = False
 
+    numbers = ['0','1','2','3','4','5','6','7','8','9']
 
     idx = 0
     array = list(readFile("example.mb"))
-    for i in array:
-        if i == '>' and skip == False:
+
+    i=0
+    ib = 0
+    nu = ''
+    while i != len(array):
+        if array[i] == '>' and skip == False:
             idx+=1
-        if i == '<' and skip == False:
+        if array[i] == '<' and skip == False:
             idx-=1
-        if i == '+' and skip == False:
+        if array[i] == '+' and skip == False:
             tape[idx] += 1
-        if i == "." and skip == False:
+        if array[i] == "." and skip == False:
             print(chr(tape[idx]))
-        if i == ',' and skip == False:
+        if array[i] == ',' and skip == False:
             tape[idx] = int(input(">"))
-        if i == '[' and skip == False:
+        if array[i] == '[' and skip == False:
             if tape[idx] != 0:
                 skip = True
             else:
                 skip = False
-        if i == ']':
+        if array[i] == ']':
             skip = False
+        if array[i] in numbers:
+            print("numbers")
 
 
 if __name__ == "__main__":
