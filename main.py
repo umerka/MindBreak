@@ -10,36 +10,20 @@ for i in range(1000):
     tape.append(0)
 
 def main():
-    leftbracket = False
-    skip = False
-    loopAdress = 0
 
     idx = 0
     array = list(readFile("example.mb"))
     for i in array:
-        if i == '>' and skip==False:
+        if i == '>':
             idx+=1
-        if i == '<' and skip==False:
+        if i == '<':
             idx-=1
-        if i == '+' and skip==False:
+        if i == '+':
             tape[idx] += 1
-        if i == "." and skip==False:
+        if i == ".":
             print(chr(tape[idx]))
-        if i == ',' and skip==False:
+        if i == ',':
             tape[idx] = int(input(">"))
-        if i == '[':
-            leftbracket = True
-            loopAdress = i
-            if tape[idx] == 0:
-                skip = True
-            else:
-                skip = False
-        if i == ']':
-            if skip == True:
-                skip = False
-                leftbracket = False
-            else:
-                i = loopAdress
 
 
 if __name__ == "__main__":
