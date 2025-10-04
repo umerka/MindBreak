@@ -363,3 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 *.mb
+Log.txt
+Input.txt

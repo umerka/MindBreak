@@ -47,11 +47,16 @@ def main():
     idx = 0
     array = list(readFile(file))
 
+    if fileInput:
+        try:
+            inputFile = list(readFile("Input.txt"))
+        except FileNotFoundError:
+            pass
+
     i=0
     ib = 0
     pb = 0
     luop = ''
-    inputFile = list(readFile("Input.txt"))
     fileIdx = 0
     while i != len(array):
         if array[i] == '>' and skip == False:
