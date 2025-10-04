@@ -1,5 +1,5 @@
-import fileinput
 import sys
+import random
 
 if len(sys.argv) > 1:
     file = sys.argv[1]
@@ -89,7 +89,7 @@ def main():
                 else:
                     tape[idx] = ord(temp)
 
-        if array[i] == "\\":
+        if array[i] == "\\" and skip == False:
             if fileInput:
                 temp = inputFile[fileIdx:]
             else:
@@ -100,8 +100,9 @@ def main():
                 idx+=1
                 tape[idx] = ord(j)
             idx = ib
+            tape[idx] = len(temp)
 
-        if array[i] == '#':
+        if array[i] == '#' and skip==False:
             pass
             luop = "#"
 
@@ -113,16 +114,16 @@ def main():
         if array[i] == ']':
             skip = False
 
-        if array[i] == '{' and pointers[idx][1] == 'T' and leftBrace != True:
+        if array[i] == '{' and pointers[idx][1] == 'T' and leftBrace != True and skip == False:
             pb = idx
             idx = pointers[idx][0]
             leftBrace = True
 
-        if array[i] == '}' and leftBrace == True:
+        if array[i] == '}' and leftBrace == True and skip == False:
             leftBrace = False
             idx = pb
 
-        if array[i] in numbers:
+        if array[i] in numbers and skip == False:
             for j in range(int(array[i])):
                 if luop == '>':
                     idx+=1
@@ -135,20 +136,49 @@ def main():
                 if luop == '#':
                     pass
 
-        if array[i] == '$':
+        if array[i] == '$' and skip == False:
             pointers.append([tape[idx], 'T'])
         if array[i] == '&':
             pointers.append([tape[idx], 'P'])
 
-        if array[i] == '*':
+        if array[i] == '*' and skip == False:
             pointer = pointers[tape[idx]]
             if pointer[1] == 'T':
                 idx = pointer[0]
             if pointer[1] == 'P':
                 i = pointer[0]
 
+        if array[i] == '^' and skip == False:
+            idx = tape[idx]
+        if array[i] == '@' and skip == False:
+            pointer = pointers[tape[idx]]
+            if pointer[1] == 'T':
+                tape[idx] = tape[pointer[0]]
+        if array[i] == '!' and skip == False:
+            pointer = pointers[tape[idx]]
+            if pointer[1] == 'P':
+                array[pointer[0]] = chr(tape[idx])
+        if array[i] == '%' and skip == False:
+            limit = tape[idx]
+            templ = []
+            ib = idx
+            for j in range(limit):
+                idx+=1
+                templ.append(chr(tape[idx]))
+            templ.reverse()
+            idx = ib
+            for j in templ:
+                array.insert(i+1, j)
+
+        if array[i] == '?':
+            tape[idx] = random.randint(0, tape[idx])
+
+        if array[i] == ';':
+            break
+
+
         i+=1
-    print(tape)
+
     if logOutput:
         logFiles("\n--END PROGRAM--\n")
 
