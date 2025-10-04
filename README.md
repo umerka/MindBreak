@@ -1,6 +1,6 @@
 # **MindBreak**
 
-## **An enhanced version of MindFuck**
+## **An enhanced version of BrainFuck**
 
 
 
@@ -8,7 +8,7 @@
 
  	Because I can.
 
- 	So, it's pretty much the same as MindFuck but it has ques from assembly.
+ 	So, it's pretty much the same as BrainFuck but it has ques from assembly.
 
  	I recomend learning BrainFuck before using this.
 
