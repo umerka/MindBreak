@@ -80,7 +80,7 @@
 
 #### **Skip-if-not-Zero:**
 
- 	***(\[ ])\**** - Skip-if-not-Zero operator. Instead of the loop operator of regular BrainFuck,
+ 	 ***(\[ ])\**** - Skip-if-not-Zero operator. Instead of the loop operator of regular BrainFuck,
 
  		 It just skips the code inside if the current cell's value isn't 0.
 
@@ -112,7 +112,7 @@
 
 #### **Execution Blocks:**
 
-	***({ })\**** - The execution blocks. When used, it sends the tapehead to a **T Pointer** based on the index in the current cell.
+ **({ })\**** - The execution blocks. When used, it sends the tapehead to a **T Pointer** based on the index in the current cell.
 
 &nbsp;		 However, after the code inside the block runs, it sends the tapehead back to where it was before the jump.
 
@@ -128,5 +128,5 @@
 
 &nbsp;	***(%)\**** - Insert operator, adds *n* amount of characters to the program infront of the *PC* based on the cells infront of the
 
-&nbsp;	       tapehead and uses the current cell as the upper limit.
+&nbsp;	tapehead and uses the current cell as the upper limit.
 
